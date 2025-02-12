@@ -25,6 +25,7 @@ untuk karyawan yang membayar pajak :
 Jika memiliki NPWP maka potongan pajak pertahunnya adalah total gaji * 15%
 Jika tidak memiliki NPWP maka potongan pajak pertahunnya adalah total gaji * 20%
 
+TODO :
 Tampilkan :
 Nominal Gaji Kotor Karyawan
 Nominal Potongan Pajak
