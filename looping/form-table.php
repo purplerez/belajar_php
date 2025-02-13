@@ -46,7 +46,7 @@
                         for($y = 1; $y <= $kolom; $y++) {
                     ?>
                         <td>
-                                &nbsp;
+                                i = <?= $i ?> ; y = <?= $y ?> 
                         </td>
                     <?php
                             }
