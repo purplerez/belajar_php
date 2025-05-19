@@ -53,8 +53,9 @@ include "./config/data.php";
     </div>
 </div>
     
-<table class="" border = 1 style="width : 50%; margin : 20px; border : solid 1px black;">
-    <th>
+<table class="" border=1 style="width : 50%; margin : 20px; border : solid 1px black;">
+<thead>
+<tr>
         <td>No. </td>
         <td>NIS</td>
         <td>NAMA</td>
@@ -63,10 +64,21 @@ include "./config/data.php";
         <td>MTK</td>
         <td>PROD</td>
         <td>Rata</td>
-    </th>
+    </tr>
+    </thead>
+    <tbody>
 <?php
-$no = 1; 
+$no = 0;
+$ratabin = 0;
+$ratamtk = 0;
+$ratabing = 0;
+$ratapro = 0;
     foreach($_SESSION['nilai'] as $nilai){
+        $no++;
+        $ratabin += $nilai['bin'];
+        $ratamtk += $nilai['mtk'];
+        $ratabing += $nilai['bing'];
+        $ratapro += $nilai['pro'];
 ?>
     <tr>
         <td><?= $no ?></td>
@@ -79,9 +91,20 @@ $no = 1;
         <td><?= $nilai['rata'] ?></td>
       
     </tr>
-<?php 
-$no++; 
-}  ?>
+<?php
+        
+    }
+?>
+<!-- memberi rata - rata pada masing - masing mata pelajaran -->
+<tr>
+    <td colspan=3>Rata - Rata </td>
+    <td><?= ($ratabin/$no) ?></td>
+    <td><?= ($ratamtk/$no) ?></td>
+    <td><?= ($ratabing/$no) ?></td>
+    <td><?= ($ratapro/$no) ?></td>
+    <td>&nbsp;</td>
+</tr>
+</tbody>
 </table>
 </body>
 </html>
