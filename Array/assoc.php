@@ -90,7 +90,7 @@
         ?>
         <tr>
             <td><?= $d['no'] ?></td>
-            <td><?=   $d['nama'] ?></td>
+            <td><?= $d['nama'] ?></td>
             <td><?= $d['absen'] ?></td>
             <td><?= $d['bin'] ?></td>
             <td><?= $d['bing'] ?></td>
