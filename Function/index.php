@@ -20,7 +20,7 @@ function cetak($string, $jumlah = 1){
 }
 
 
-// metode jual nasi yang ngeracik 
+// metode jual nasi yang ngeracik
 // for($i = 1; $i <= 100; $i++)
 //     echo "PPLG <BR/>";
 
