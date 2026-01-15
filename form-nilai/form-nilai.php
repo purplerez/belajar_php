@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include "./config/data.php";
 ?>
 
@@ -53,7 +52,7 @@ include "./config/data.php";
     </div>
 </div>
     
-<table class="" border=1 style="width : 50%; margin : 20px; border : solid 1px black;">
+<table border=1 style="width : 50%; margin : 20px; border : solid 1px black; border-collapse : collapse;">
 <thead>
 <tr>
         <td>No. </td>
@@ -68,6 +67,7 @@ include "./config/data.php";
     </thead>
     <tbody>
 <?php
+if(isset($_SESSION['nilai'])){
 $no = 0;
 $ratabin = 0;
 $ratamtk = 0;
@@ -94,16 +94,22 @@ $ratapro = 0;
 <?php
         
     }
+}
+else {
+    echo "<tr><td colspan=8 class='text-center'>Tidak ada data nilai</td></tr>";
+}
 ?>
 <!-- memberi rata - rata pada masing - masing mata pelajaran -->
-<tr>
-    <td colspan=3>Rata - Rata </td>
-    <td><?= ($ratabin/$no) ?></td>
-    <td><?= ($ratamtk/$no) ?></td>
-    <td><?= ($ratabing/$no) ?></td>
-    <td><?= ($ratapro/$no) ?></td>
-    <td>&nbsp;</td>
-</tr>
+ <?php if($no > 0) { ?>
+    <tr>
+        <td colspan=3>Rata - Rata </td>
+        <td><?= ($ratabin/$no) ?></td>
+        <td><?= ($ratamtk/$no) ?></td>
+        <td><?= ($ratabing/$no) ?></td>
+        <td><?= ($ratapro/$no) ?></td>
+        <td>&nbsp;</td>
+    </tr>
+<?php } ?>
 </tbody>
 </table>
 </body>
