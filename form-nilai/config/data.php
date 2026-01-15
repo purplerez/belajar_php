@@ -22,16 +22,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $jur = htmlspecialchars($_POST['jurusan']);
         $hobi = implode(",", $_POST['hobi']);
 
-        echo "NIS = $nis <br/>
-        Nama = $nama <br/>
-        Tempat/Tgl Lahir = $tempat / ".date("l, dS F Y ", strtotime($tgl))." <br/>
+        // echo "NIS = $nis <br/>
+        // Nama = $nama <br/>
+        // Tempat/Tgl Lahir = $tempat / ".date("l, dS F Y ", strtotime($tgl))." <br/>
        
-        Alamat = $alamat <br/>
-        Gender = $gender <br/>
-        Telp = $telp <br/>
-        Kelas = $kelas <br/>
-        Jurusan = $jur <br/>
-        Hobi = $hobi";
+        // Alamat = $alamat <br/>
+        // Gender = $gender <br/>
+        // Telp = $telp <br/>
+        // Kelas = $kelas <br/>
+        // Jurusan = $jur <br/>
+        // Hobi = $hobi";
     }
     else if(isset($_POST["btnInputNilai"])){
         $nis = htmlspecialchars($_POST['nis']);
