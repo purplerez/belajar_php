@@ -1,4 +1,7 @@
 <?php
+include '../class/OperasiAritmatika.php';
+include '../class/LuasBangunDatar.php';
+
 use LuasBangunDatar\LuasBangunDatar;
 ?>
 <!DOCTYPE html>

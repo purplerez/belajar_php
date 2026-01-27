@@ -6,7 +6,8 @@ class OperasiAritmatika{
     public $bil1;
     public $bil2;
 
-    public function tambah(){
+    public function tambah():float
+    {
         return $this->bil1 + $this->bil2;
     }
 

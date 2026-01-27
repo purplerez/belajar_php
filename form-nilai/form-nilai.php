@@ -52,64 +52,66 @@ include "./config/data.php";
     </div>
 </div>
     
-<table border=1 style="width : 50%; margin : 20px; border : solid 1px black; border-collapse : collapse;">
-<thead>
-<tr>
-        <td>No. </td>
-        <td>NIS</td>
-        <td>NAMA</td>
-        <td>BIN</td>
-        <td>BIG</td>
-        <td>MTK</td>
-        <td>PROD</td>
-        <td>Rata</td>
-    </tr>
+<table style="width : 50%; margin : 20px; border : solid 1px black; border-collapse : collapse; text-align : center;" border="1">
+    <thead>
+        <tr>
+            <th>No. </th>
+            <th>NIS</th>
+            <th>NAMA</th>
+            <th>BIN</th>
+            <th>BING</th>
+            <th>MTK</th>
+            <th>PRO</th>
+            <th>Rata</th>
+            <th>Menu</th>
+        </tr>
     </thead>
     <tbody>
-<?php
-if(isset($_SESSION['nilai'])){
-$no = 0;
-$ratabin = 0;
-$ratamtk = 0;
-$ratabing = 0;
-$ratapro = 0;
-    foreach($_SESSION['nilai'] as $nilai){
-        $no++;
-        $ratabin += $nilai['bin'];
-        $ratamtk += $nilai['mtk'];
-        $ratabing += $nilai['bing'];
-        $ratapro += $nilai['pro'];
-?>
-    <tr>
-        <td><?= $no ?></td>
-        <td><?= $nilai['nis'] ?></td>
-        <td><?= $nilai['nama'] ?></td>
-        <td><?= $nilai['bin'] ?></td>
-        <td><?= $nilai['bing'] ?></td>
-        <td><?= $nilai['mtk'] ?></td>
-        <td><?= $nilai['pro'] ?></td>
-        <td><?= $nilai['rata'] ?></td>
-      
-    </tr>
-<?php
+    <?php
+        if(isset($_SESSION['nilai'])){
+        $no = 0;
+        $ratabin = 0;
+        $ratamtk = 0;
+        $ratabing = 0;
+        $ratapro = 0;
+        foreach($_SESSION['nilai'] as $nilai){
+            $no++;
+            $ratabin += $nilai['bin'];
+            $ratamtk += $nilai['mtk'];
+            $ratabing += $nilai['bing'];
+            $ratapro += $nilai['pro'];
+    ?>
+        <tr>
+            <td><?= $no ?></td>
+            <td><?= $nilai['nis'] ?></td>
+            <td><?= $nilai['nama'] ?></td>
+            <td><?= $nilai['bin'] ?></td>
+            <td><?= $nilai['bing'] ?></td>
+            <td><?= $nilai['mtk'] ?></td>
+            <td><?= $nilai['pro'] ?></td>
+            <td><?= $nilai['rata'] ?></td>
+            <td><a href="edit.php?editNis=<?= $nilai['nis'] ?>">Edit</a> | <a href="?deleteNis=<?= $nilai['nis'] ?>">Delete</a></td>
         
+        </tr>
+    <?php
+            
+        }
     }
-}
-else {
-    echo "<tr><td colspan=8 class='text-center'>Tidak ada data nilai</td></tr>";
-}
-?>
-<!-- memberi rata - rata pada masing - masing mata pelajaran -->
- <?php if($no > 0) { ?>
-    <tr>
-        <td colspan=3>Rata - Rata </td>
-        <td><?= ($ratabin/$no) ?></td>
-        <td><?= ($ratamtk/$no) ?></td>
-        <td><?= ($ratabing/$no) ?></td>
-        <td><?= ($ratapro/$no) ?></td>
-        <td>&nbsp;</td>
-    </tr>
-<?php } ?>
+    else {
+        echo "<tr><td colspan=8 class='text-center'>Tidak ada data nilai</td></tr>";
+    }
+    ?>
+    <!-- memberi rata - rata pada masing - masing mata pelajaran -->
+    <?php if($no > 0) { ?>
+        <tr>
+            <td colspan=3>Rata - Rata </td>
+            <td><?= round($ratabin/$no, 2) ?></td>
+            <td><?= round($ratamtk/$no, 2) ?></td>
+            <td><?= round($ratabing/$no, 2) ?></td>
+            <td><?= round($ratapro/$no, 2) ?></td>
+            <td>&nbsp;</td>
+        </tr>
+    <?php } ?>
 </tbody>
 </table>
 </body>
